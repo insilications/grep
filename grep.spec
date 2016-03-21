@@ -4,7 +4,7 @@
 #
 Name     : grep
 Version  : 2.24
-Release  : 16
+Release  : 17
 URL      : http://mirrors.kernel.org/gnu/grep/grep-2.24.tar.xz
 Source0  : http://mirrors.kernel.org/gnu/grep/grep-2.24.tar.xz
 Summary  : No detailed summary available
@@ -47,7 +47,14 @@ locales components for the grep package.
 %setup -q -n grep-2.24
 
 %build
-%configure --disable-static
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
+export FCFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
+export FFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
+export CXXFLAGS="$CXXFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
+%configure --disable-static --with-packager="Clear Linux"
 make V=1  %{?_smp_mflags}
 
 %check
