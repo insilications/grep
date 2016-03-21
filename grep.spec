@@ -4,7 +4,7 @@
 #
 Name     : grep
 Version  : 2.24
-Release  : 17
+Release  : 18
 URL      : http://mirrors.kernel.org/gnu/grep/grep-2.24.tar.xz
 Source0  : http://mirrors.kernel.org/gnu/grep/grep-2.24.tar.xz
 Summary  : No detailed summary available
@@ -13,6 +13,7 @@ License  : GFDL-1.3 GPL-3.0 GPL-3.0+
 Requires: grep-bin
 Requires: grep-doc
 Requires: grep-locales
+BuildRequires : pcre-dev
 
 %description
 This is GNU grep, the "fastest grep in the west" (we hope).  All
@@ -50,10 +51,10 @@ locales components for the grep package.
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
-export FCFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
-export FFLAGS="$CFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
-export CXXFLAGS="$CXXFLAGS -fno-semantic-interposition -falign-functions=32 -O3 -flto "
+export CFLAGS="$CFLAGS -falign-functions=32 -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -falign-functions=32 -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -falign-functions=32 -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -falign-functions=32 -O3 -flto -fno-semantic-interposition "
 %configure --disable-static --with-packager="Clear Linux"
 make V=1  %{?_smp_mflags}
 
