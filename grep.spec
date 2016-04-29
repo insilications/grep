@@ -4,7 +4,7 @@
 #
 Name     : grep
 Version  : 2.25
-Release  : 19
+Release  : 20
 URL      : http://mirrors.kernel.org/gnu/grep/grep-2.25.tar.xz
 Source0  : http://mirrors.kernel.org/gnu/grep/grep-2.25.tar.xz
 Summary  : No detailed summary available
