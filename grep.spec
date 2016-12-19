@@ -4,7 +4,7 @@
 #
 Name     : grep
 Version  : 2.26
-Release  : 22
+Release  : 23
 URL      : http://mirrors.kernel.org/gnu/grep/grep-2.26.tar.xz
 Source0  : http://mirrors.kernel.org/gnu/grep/grep-2.26.tar.xz
 Summary  : No detailed summary available
@@ -88,6 +88,6 @@ chmod +x ./tests/kwset-abuse
 %doc /usr/share/info/*
 %doc /usr/share/man/man1/*
 
-%files locales -f grep.lang 
+%files locales -f grep.lang
 %defattr(-,root,root,-)
 
