@@ -1,5 +1,5 @@
 PKG_NAME := grep
-URL := http://mirrors.kernel.org/gnu/grep/grep-2.27.tar.xz
+URL := https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz
 
 
 include ../common/Makefile.common
