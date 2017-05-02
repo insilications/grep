@@ -6,7 +6,7 @@
 #
 Name     : grep
 Version  : 3.0
-Release  : 25
+Release  : 26
 URL      : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz
 Source0  : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz
 Source99 : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz.sig
