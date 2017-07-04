@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x7FD9FCCB000BEEEE (meyering@fb.com)
 #
 Name     : grep
-Version  : 3.0
-Release  : 27
-URL      : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz
-Source0  : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz
-Source99 : https://ftp.gnu.org/pub/gnu/grep/grep-3.0.tar.xz.sig
+Version  : 3.1
+Release  : 28
+URL      : https://ftp.gnu.org/pub/gnu/grep/grep-3.1.tar.xz
+Source0  : https://ftp.gnu.org/pub/gnu/grep/grep-3.1.tar.xz
+Source99 : https://ftp.gnu.org/pub/gnu/grep/grep-3.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.3 GPL-3.0 GPL-3.0+
+License  : GPL-3.0 GPL-3.0+
 Requires: grep-bin
 Requires: grep-doc
 Requires: grep-locales
@@ -48,11 +48,14 @@ locales components for the grep package.
 
 
 %prep
-%setup -q -n grep-3.0
+%setup -q -n grep-3.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489499075
+export SOURCE_DATE_EPOCH=1499169915
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -67,11 +70,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1489499075
+export SOURCE_DATE_EPOCH=1499169915
 rm -rf %{buildroot}
 %make_install
 %find_lang grep

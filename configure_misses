@@ -1,0 +1,12 @@
+Configure miss: getprogname
+Configure miss: getexecname
+Configure miss: mbslen
+Configure miss: crtdefs.h
+Configure miss: whether wint_t is too small
+Configure miss: whether stdint.h predates C++11
+Configure miss: whether the C locale is free of encoding errors
+Configure miss: whether <limits.h> defines MIN and MAX
+Configure miss: whether __argv is declared
+Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: obstacks that work with any size object
+Configure miss: a turkish Unicode locale
