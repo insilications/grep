@@ -5,17 +5,19 @@
 # Source0 file verified with key 0x7FD9FCCB000BEEEE (meyering@fb.com)
 #
 Name     : grep
-Version  : 3.1
-Release  : 32
-URL      : https://mirrors.kernel.org/gnu/grep/grep-3.1.tar.xz
-Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.1.tar.xz
-Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.1.tar.xz.sig
+Version  : 3.2
+Release  : 33
+URL      : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz
+Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
-Requires: grep-bin
-Requires: grep-doc
-Requires: grep-locales
+Requires: grep-bin = %{version}-%{release}
+Requires: grep-license = %{version}-%{release}
+Requires: grep-locales = %{version}-%{release}
+Requires: grep-man = %{version}-%{release}
+BuildRequires : glibc-locale
 BuildRequires : pcre-dev
 
 %description
@@ -26,6 +28,8 @@ bugs have probably been introduced in this revision.
 %package bin
 Summary: bin components for the grep package.
 Group: Binaries
+Requires: grep-license = %{version}-%{release}
+Requires: grep-man = %{version}-%{release}
 
 %description bin
 bin components for the grep package.
@@ -34,9 +38,18 @@ bin components for the grep package.
 %package doc
 Summary: doc components for the grep package.
 Group: Documentation
+Requires: grep-man = %{version}-%{release}
 
 %description doc
 doc components for the grep package.
+
+
+%package license
+Summary: license components for the grep package.
+Group: Default
+
+%description license
+license components for the grep package.
 
 
 %package locales
@@ -47,15 +60,23 @@ Group: Default
 locales components for the grep package.
 
 
+%package man
+Summary: man components for the grep package.
+Group: Default
+
+%description man
+man components for the grep package.
+
+
 %prep
-%setup -q -n grep-3.1
+%setup -q -n grep-3.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1520542008
+export SOURCE_DATE_EPOCH=1545329275
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -74,13 +95,15 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1520542008
+export SOURCE_DATE_EPOCH=1545329275
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/grep
+cp COPYING %{buildroot}/usr/share/package-licenses/grep/COPYING
 %make_install
 %find_lang grep
-## make_install_append content
+## install_append content
 chmod +x ./tests/kwset-abuse
-## make_install_append end
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -92,9 +115,18 @@ chmod +x ./tests/kwset-abuse
 /usr/bin/grep
 
 %files doc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %doc /usr/share/info/*
-%doc /usr/share/man/man1/*
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/grep/COPYING
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/egrep.1
+/usr/share/man/man1/fgrep.1
+/usr/share/man/man1/grep.1
 
 %files locales -f grep.lang
 %defattr(-,root,root,-)
