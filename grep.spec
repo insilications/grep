@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7FD9FCCB000BEEEE (meyering@fb.com)
 #
 Name     : grep
-Version  : 3.2
-Release  : 35
-URL      : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz
-Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz
-Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.2.tar.xz.sig
+Version  : 3.3
+Release  : 36
+URL      : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
+Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
@@ -69,14 +69,14 @@ man components for the grep package.
 
 
 %prep
-%setup -q -n grep-3.2
+%setup -q -n grep-3.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545331960
+export SOURCE_DATE_EPOCH=1545429658
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -95,7 +95,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1545331960
+export SOURCE_DATE_EPOCH=1545429658
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/grep
 cp COPYING %{buildroot}/usr/share/package-licenses/grep/COPYING

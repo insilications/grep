@@ -1,5 +1,31 @@
 2018-12-20  Jim Meyering  <meyering@fb.com>
 
+	version 3.3
+	* NEWS: Record release date.
+
+	grep: fix \b DFA-bug in C locale
+	Under some conditions, \b would mistakenly fail to match, e.g.
+	  echo 123-x|LC_ALL=C grep '.\bx'
+	* NEWS (Bug fixes): Mention it
+	* gnulib: Update to latest, for DFA regression fix.
+	* tests/word-delim-multibyte: Add a test for the dfa.c regression.
+
+2018-12-20  Paul Eggert  <eggert@cs.ucla.edu>
+
+	grep: fit --version authorship into 80
+	* src/grep.c (AUTHORS): Remove.
+	(main): Output the authorship info ourselves instead of having
+	version_etc do it.  This is better for i18n anyway.
+
+	build: update gnulib submodule to latest
+
+2018-12-20  Jim Meyering  <meyering@fb.com>
+
+	maint: post-release administrivia
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* cfg.mk (old_NEWS_hash): Auto-update.
+
 	version 3.2
 	* NEWS: Record release date.
 
