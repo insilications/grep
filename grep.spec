@@ -6,7 +6,7 @@
 #
 Name     : grep
 Version  : 3.3
-Release  : 36
+Release  : 37
 URL      : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
 Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz.sig
@@ -29,7 +29,6 @@ bugs have probably been introduced in this revision.
 Summary: bin components for the grep package.
 Group: Binaries
 Requires: grep-license = %{version}-%{release}
-Requires: grep-man = %{version}-%{release}
 
 %description bin
 bin components for the grep package.
@@ -76,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545429658
+export SOURCE_DATE_EPOCH=1551150281
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -95,7 +94,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1545429658
+export SOURCE_DATE_EPOCH=1551150281
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/grep
 cp COPYING %{buildroot}/usr/share/package-licenses/grep/COPYING

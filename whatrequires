@@ -3,7 +3,9 @@ autoconf
 bashdb
 cairo
 compat-ipset-soname10
+compat-python36
 filesystem
+firewalld
 fontforge
 glibc
 gmp
