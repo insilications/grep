@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 autoconf
 bashdb
+binutils
 cairo
 compat-ipset-soname10
 compat-python36
@@ -14,15 +15,18 @@ ipset
 keepalived
 libcap
 libgudev
-mesa
+libmicrohttpd
+lttng-tools
+lttng-ust
 newt
 octave
 openmpi
+postgis
 python
 python3
 qtwebengine
-sof-crosstool-ng
 suricata
 texlive
+the_silver_searcher
 wayland
 znc

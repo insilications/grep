@@ -6,14 +6,15 @@
 #
 Name     : grep
 Version  : 3.3
-Release  : 38
+Release  : 39
 URL      : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
 Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz
-Source99 : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz.sig
+Source1 : https://mirrors.kernel.org/gnu/grep/grep-3.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
 Requires: grep-bin = %{version}-%{release}
+Requires: grep-info = %{version}-%{release}
 Requires: grep-license = %{version}-%{release}
 Requires: grep-locales = %{version}-%{release}
 Requires: grep-man = %{version}-%{release}
@@ -34,13 +35,12 @@ Requires: grep-license = %{version}-%{release}
 bin components for the grep package.
 
 
-%package doc
-Summary: doc components for the grep package.
-Group: Documentation
-Requires: grep-man = %{version}-%{release}
+%package info
+Summary: info components for the grep package.
+Group: Default
 
-%description doc
-doc components for the grep package.
+%description info
+info components for the grep package.
 
 
 %package license
@@ -69,13 +69,15 @@ man components for the grep package.
 
 %prep
 %setup -q -n grep-3.3
+cd %{_builddir}/grep-3.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551150281
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573770072
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -87,17 +89,17 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1551150281
+export SOURCE_DATE_EPOCH=1573770072
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/grep
-cp COPYING %{buildroot}/usr/share/package-licenses/grep/COPYING
+cp %{_builddir}/grep-3.3/COPYING %{buildroot}/usr/share/package-licenses/grep/31a3d460bb3c7d98845187c716a30db81c44b615
 %make_install
 %find_lang grep
 ## install_append content
@@ -113,13 +115,13 @@ chmod +x ./tests/kwset-abuse
 /usr/bin/fgrep
 /usr/bin/grep
 
-%files doc
+%files info
 %defattr(0644,root,root,0755)
-%doc /usr/share/info/*
+/usr/share/info/grep.info
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/grep/COPYING
+/usr/share/package-licenses/grep/31a3d460bb3c7d98845187c716a30db81c44b615
 
 %files man
 %defattr(0644,root,root,0755)
