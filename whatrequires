@@ -24,7 +24,7 @@ openmpi
 postgis
 python
 python3
-qtwebengine
+python37
 suricata
 texlive
 the_silver_searcher
