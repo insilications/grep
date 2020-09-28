@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7FD9FCCB000BEEEE (meyering@fb.com)
 #
 Name     : grep
-Version  : 3.4
-Release  : 40
-URL      : https://mirrors.kernel.org/gnu/grep/grep-3.4.tar.xz
-Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.4.tar.xz
-Source1  : https://mirrors.kernel.org/gnu/grep/grep-3.4.tar.xz.sig
+Version  : 3.5
+Release  : 41
+URL      : https://mirrors.kernel.org/gnu/grep/grep-3.5.tar.xz
+Source0  : https://mirrors.kernel.org/gnu/grep/grep-3.5.tar.xz
+Source1  : https://mirrors.kernel.org/gnu/grep/grep-3.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
@@ -68,22 +68,22 @@ man components for the grep package.
 
 
 %prep
-%setup -q -n grep-3.4
-cd %{_builddir}/grep-3.4
+%setup -q -n grep-3.5
+cd %{_builddir}/grep-3.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578094893
+export SOURCE_DATE_EPOCH=1601312923
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %configure --disable-static --with-packager="Clear Linux"
 make  %{?_smp_mflags}
@@ -93,13 +93,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1578094893
+export SOURCE_DATE_EPOCH=1601312923
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/grep
-cp %{_builddir}/grep-3.4/COPYING %{buildroot}/usr/share/package-licenses/grep/31a3d460bb3c7d98845187c716a30db81c44b615
+cp %{_builddir}/grep-3.5/COPYING %{buildroot}/usr/share/package-licenses/grep/31a3d460bb3c7d98845187c716a30db81c44b615
 %make_install
 %find_lang grep
 ## install_append content

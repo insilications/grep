@@ -3,7 +3,6 @@ autoconf
 bashdb
 binutils
 cairo
-compat-ipset-soname10
 compat-python36
 filesystem
 firewalld
@@ -13,9 +12,11 @@ gmp
 gzip
 ipset
 keepalived
+kronosnet
 libcap
 libgudev
 libmicrohttpd
+libstatgrab
 lttng-tools
 lttng-ust
 newt
