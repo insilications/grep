@@ -4,4 +4,4 @@
 --enable-perl-regexp
 --enable-threads
 --with-packager="Clear Linux"
-PCRE_LIBS=/usr/lib/libpcre.a
+PCRE_LIBS=/usr/lib64/haswell/libpcre.a

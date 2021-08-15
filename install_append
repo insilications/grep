@@ -1,2 +1,0 @@
-# Mark patched in test-suite executable
-chmod +x ./tests/kwset-abuse

@@ -42,7 +42,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1629061589
+export SOURCE_DATE_EPOCH=1629061742
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -175,13 +175,9 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1629061589
+export SOURCE_DATE_EPOCH=1629061742
 rm -rf %{buildroot}
 %make_install
-## install_append content
-# Mark patched in test-suite executable
-chmod +x ./tests/kwset-abuse
-## install_append end
 
 %files
 %defattr(-,root,root,-)
