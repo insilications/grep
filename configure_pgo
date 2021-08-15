@@ -1,7 +1,7 @@
 --disable-shared
 --enable-static
---with-packager="Clear Linux"
 --disable-assert
 --enable-perl-regexp
 --enable-threads
+--with-packager="Clear Linux"
 PCRE_LIBS=/usr/lib/libpcre.a

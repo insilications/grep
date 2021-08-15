@@ -1,1 +1,4 @@
-make -j1 check V=1 VERBOSE=yes RUN_EXPENSIVE_TESTS=yes || :
+export RUN_EXPENSIVE_TESTS=yes
+make -j1 check-expensive V=1 VERBOSE=yes RUN_EXPENSIVE_TESTS=yes || :
+unset RUN_EXPENSIVE_TESTS
+make -j1 check V=1 VERBOSE=yes || :
