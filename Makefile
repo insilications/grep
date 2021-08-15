@@ -1,5 +1,6 @@
 PKG_NAME := grep
-URL = https://mirrors.kernel.org/gnu/grep/grep-3.6.tar.xz
+URL = https://git.savannah.gnu.org/git/grep.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common

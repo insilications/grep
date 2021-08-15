@@ -3,3 +3,11 @@
 glibc-locale
 pcre-dev
 pcre-staticdev
+gettext
+perl
+texinfo
+xz-dev
+xz-staticdev
+pkg-config
+pkg-config-dev
+gperf

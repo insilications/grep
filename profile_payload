@@ -1,1 +1,1 @@
-make -j1 check V=1 VERBOSE=1 || :
+make -j1 check V=1 VERBOSE=yes RUN_EXPENSIVE_TESTS=yes || :
