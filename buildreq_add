@@ -11,3 +11,7 @@ xz-staticdev
 pkg-config
 pkg-config-dev
 gperf
+rsync
+pigz-bin
+gawk
+gawk-dev
