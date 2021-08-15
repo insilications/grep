@@ -82,7 +82,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1629066921
+export SOURCE_DATE_EPOCH=1629066939
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -217,7 +217,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1629066921
+export SOURCE_DATE_EPOCH=1629066939
 rm -rf %{buildroot}
 %make_install
 %find_lang grep
